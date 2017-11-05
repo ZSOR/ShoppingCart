@@ -1,23 +1,34 @@
 ﻿using System;
+using System.Collections;
+
 namespace shoppingCart.Models
 {
     public class Order
     {
-        public Order(
-            string code,
-            string description,
-            decimal unitPrice)
+        static int previousId = 0;
+
+        public Order(Customer customer,
+                     decimal amount,
+                     IEnumerable orderLines)
         {
-            Code = code;
-            Description = description;
-            UnitPrice = unitPrice;
+            Id = previousId += 1;
+            CustomerName = customer.Name;
+            Date = DateTime.Now;
+            Address = customer.Address;
+            Amount = amount;
+            OrderLines = orderLines;
         }
 
+        public int Id { get; set; }
 
-        public string Code {get; set;}
+        public string CustomerName { get; set; }
 
-        public string Description { get; set; }
+        public DateTime Date { get; set; }
 
-        public decimal UnitPrice { get; set; }
+        public string Address { get; set; }
+
+        public decimal Amount { get; set; }
+    
+        public IEnumerable OrderLines { get; set; }
     }
 }
