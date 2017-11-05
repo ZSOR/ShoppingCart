@@ -5,23 +5,19 @@ namespace shoppingCart.Models
     {
         private static int previousId = 0;
 
-        public OrderLine(string productCode, 
-                        int quantity,
-                        decimal unitPrice)
+        public OrderLine(Product product,
+                        int quantity)
         {
             OrderId = previousId += 1;
-            ProductCode = productCode;
             Quantity = quantity < 0 ? 0 : quantity;
-            UnitPrice = unitPrice;
+            Product = product;
         }
 
         public int OrderId { get; set; }
 
-        public string ProductCode { get; set; }
-
         public int Quantity { get; set; }
-    
-        public decimal UnitPrice { get; set; }
-    
+
+        public Product Product { get; set; }
+
     }
 }

@@ -18,8 +18,10 @@ namespace shoppingCart.Models
             Email = email;
             Address = address;
             Type = type;
-
+            Cart = new ShoppingCart(name);
         }
+
+
 
         public string Name { get; set; }
 
@@ -27,7 +29,9 @@ namespace shoppingCart.Models
 
         public string Address { get; set; }
 
-        public CustomerType Type { get;  set }
+        public CustomerType Type { get; set; }
+
+        public ShoppingCart Cart { get; set; }
 
     }
 }
