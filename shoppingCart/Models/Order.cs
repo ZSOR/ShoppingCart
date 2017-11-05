@@ -12,7 +12,7 @@ namespace shoppingCart.Models
         private bool _orderConfirmed;
 
         public Order(Customer customer,
-                     List<OrderLine> orderLines)
+                     IList<OrderLine> orderLines)
         {
             Id = previousId += 1;
             CustomerName = customer.Name;

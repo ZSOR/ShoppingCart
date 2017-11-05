@@ -19,5 +19,6 @@ namespace shoppingCart.Models
 
         public Product Product { get; set; }
 
+        public decimal Cost { get => Quantity * Product.UnitPrice; }
     }
 }

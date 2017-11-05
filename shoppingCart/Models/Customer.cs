@@ -21,7 +21,7 @@ namespace shoppingCart.Models
             Cart = new ShoppingCart(name);
         }
 
-
+        #region Public Attributes
 
         public string Name { get; set; }
 
@@ -32,6 +32,17 @@ namespace shoppingCart.Models
         public CustomerType Type { get; set; }
 
         public ShoppingCart Cart { get; set; }
+
+        #endregion
+
+        #region Public Functions
+
+        public Order PlaceOrder()
+        {
+            return new Order(this, Cart.Items);   
+        }
+
+        #endregion
 
     }
 }
