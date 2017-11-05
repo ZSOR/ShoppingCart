@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Runtime.Serialization;
+
 namespace shoppingCart.Models
 {
+    [DataContract]
     public class OrderLine
     {
         private static int previousId = 0;
@@ -13,12 +16,20 @@ namespace shoppingCart.Models
             Product = product;
         }
 
-        public int OrderId { get; set; }
+        [DataMember]
+        public int OrderId { get; private set; }
 
-        public int Quantity { get; set; }
+        [DataMember]
+        public int Quantity { get; private set; }
 
-        public Product Product { get; set; }
+        [DataMember]
+        public Product Product { get; private set; }
 
-        public decimal Cost { get => Quantity * Product.UnitPrice; }
+        [DataMember]
+        public decimal Cost
+        {
+            get => Quantity * Product.UnitPrice;
+            private set => Cost = value;
+        }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.Serialization;
+
 namespace shoppingCart.Models
 {
     public enum CustomerType{
@@ -6,7 +8,7 @@ namespace shoppingCart.Models
         Silver,
         Gold
     }
-
+    [DataContract]
     public class Customer
     {
         public Customer(string name,
@@ -22,16 +24,20 @@ namespace shoppingCart.Models
         }
 
         #region Public Attributes
-
+        [DataMember]
         public string Name { get; set; }
 
+        [DataMember]
         public string Email { get; set; }
 
+        [DataMember]
         public string Address { get; set; }
 
+        [DataMember]
         public CustomerType Type { get; set; }
 
-        public ShoppingCart Cart { get; set; }
+        [DataMember]
+        public ShoppingCart Cart { get; private set; }
 
         #endregion
 

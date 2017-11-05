@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Runtime.Serialization;
+
 namespace shoppingCart.Models
 {
+    [DataContract]
     public class Product
     {
         public Product(
@@ -13,10 +16,13 @@ namespace shoppingCart.Models
             UnitPrice = unitPrice;
         }
 
-        public string Code { get; set; }
+        [DataMember]
+        public string Code { get; private set; }
 
-        public string Description { get; set; }
+        [DataMember]
+        public string Description { get; private set; }
 
-        public decimal UnitPrice { get; set; }
+        [DataMember]
+        public decimal UnitPrice { get; private set; }
     }
 }

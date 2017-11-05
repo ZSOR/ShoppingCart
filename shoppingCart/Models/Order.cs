@@ -2,9 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 
 namespace shoppingCart.Models
 {
+    [DataContract]
     public class Order
     {
         static int previousId = 0;
@@ -24,11 +26,13 @@ namespace shoppingCart.Models
 
         #region Public Attriubtes
 
-        public int Id { get; }
+        [DataMember]
+        public int Id { get; private set; }
 
+        [DataMember]
         public string CustomerName
         {
-            get { return CustomerName; }
+            get => CustomerName;
             set
             {
                 if (!OrderConfirmed)
@@ -38,9 +42,10 @@ namespace shoppingCart.Models
             }
         }
 
+        [DataMember]
         public DateTime Date
         {
-            get { return Date; }
+            get => Date;
             set
             {
                 if (!OrderConfirmed)
@@ -50,9 +55,10 @@ namespace shoppingCart.Models
             }
         }
 
+        [DataMember]
         public string Address
         {
-            get { return Address; }
+            get => Address;
             set
             {
                 if (!OrderConfirmed)
@@ -62,11 +68,18 @@ namespace shoppingCart.Models
             }
         }
 
-        public decimal Amount { get { return CalculateTotal(); } }
+        [DataMember]
+        public decimal Amount { get { return CalculateTotal(); } private set => Amount = value; }
 
-        public IList<OrderLine> OrderLines { get; }
+        [DataMember]
+        public IList<OrderLine> OrderLines { get; private set; }
 
-        public bool OrderConfirmed { get => _orderConfirmed; }
+        [DataMember]
+        public bool OrderConfirmed
+        {
+            get => _orderConfirmed;
+            private set { _orderConfirmed = value}
+        }
 
         #endregion
 

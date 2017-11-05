@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 
 namespace shoppingCart.Models
 {
+    [DataContract]
     public class ShoppingCart
     {
 
@@ -15,18 +17,23 @@ namespace shoppingCart.Models
         }
 
         #region Attributes
+        [DataMember]
+        public string CustomerName { get; private set; }
 
-        public string CustomerName { get; set; }
+        [DataMember]
+        public string ProductCode { get; private set; }
 
-        public string ProductCode { get; set; }
+        [DataMember]
+        public int Quantity { get; private set; }
 
-        public int Quantity { get; set; }
+        [DataMember]
+        public decimal UnitPrice { get; private set; }
 
-        public decimal UnitPrice { get; set; }
-
-        public IList<OrderLine> Items 
-        { 
+        [DataMember]
+        public IList<OrderLine> Items
+        {
             get { return _items; }
+            private set { _items = value; }
         }
         #endregion
 
