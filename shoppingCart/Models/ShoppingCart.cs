@@ -46,7 +46,7 @@ namespace shoppingCart.Models
 
         public void RemoveItem(int itemId)
         {
-            _items = _items.Where(x => x.OrderId != itemId).ToList();
+            _items = _items.Where(x => x.Id != itemId).ToList();
         }
 
         public void ClearCart()

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -12,6 +11,7 @@ namespace shoppingCart.Models
         static int previousId = 0;
 
         private bool _orderConfirmed;
+        private Customer _customer;
 
         public Order(Customer customer,
                      IList<OrderLine> orderLines)
@@ -22,6 +22,7 @@ namespace shoppingCart.Models
             Address = customer.Address;
             OrderLines = orderLines;
             _orderConfirmed = false;
+            _customer = customer;
         }
 
         #region Public Attriubtes
@@ -78,7 +79,7 @@ namespace shoppingCart.Models
         public bool OrderConfirmed
         {
             get => _orderConfirmed;
-            private set { _orderConfirmed = value}
+            private set { _orderConfirmed = value; }
         }
 
         #endregion
@@ -89,6 +90,8 @@ namespace shoppingCart.Models
         public void ConfirmOrder()
         {
             _orderConfirmed = true;
+            //send email
+            //get pay autherisation
         }
 
         #endregion
@@ -101,7 +104,15 @@ namespace shoppingCart.Models
 
             OrderLines.Select(x => total += x.Cost);
 
-            return total;
+            switch (_customer.Type)
+            {
+                case CustomerType.Gold:
+                    return (decimal)0.97 * total;
+                case CustomerType.Silver:
+                    return (decimal)0.98 * total;
+                default:
+                    return total;
+            }
         }
 
         #endregion

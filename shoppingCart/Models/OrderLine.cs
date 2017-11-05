@@ -1,5 +1,4 @@
-﻿using System;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace shoppingCart.Models
 {
@@ -11,13 +10,13 @@ namespace shoppingCart.Models
         public OrderLine(Product product,
                         int quantity)
         {
-            OrderId = previousId += 1;
+            Id = previousId += 1;
             Quantity = quantity < 0 ? 0 : quantity;
             Product = product;
         }
 
         [DataMember]
-        public int OrderId { get; private set; }
+        public int Id { get; private set; }
 
         [DataMember]
         public int Quantity { get; private set; }
