@@ -80,12 +80,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\Product.cs" />
@@ -94,7 +92,6 @@
     <Compile Include="Controllers\CustomerController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Web.config" />
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />

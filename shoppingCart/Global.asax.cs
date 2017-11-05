@@ -1,6 +1,5 @@
 ﻿using System.Web;
 using System.Web.Mvc;
-using System.Web.Routing;
 using System.Web.Http;
 
 namespace shoppingCart
@@ -11,7 +10,6 @@ namespace shoppingCart
         {
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
     }
 }

@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shoppingCart", "shoppingCart\shoppingCart.csproj", "{ECACCDAF-14E3-4157-9B6F-ED92C124B113}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shoppingCart.Tests", "shoppingCart.Tests\shoppingCart.Tests.csproj", "{81A6917C-9AEF-4EE6-8427-F1C2F8ED44F9}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +13,5 @@ Global
 		{ECACCDAF-14E3-4157-9B6F-ED92C124B113}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECACCDAF-14E3-4157-9B6F-ED92C124B113}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECACCDAF-14E3-4157-9B6F-ED92C124B113}.Release|Any CPU.Build.0 = Release|Any CPU
-		{81A6917C-9AEF-4EE6-8427-F1C2F8ED44F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{81A6917C-9AEF-4EE6-8427-F1C2F8ED44F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{81A6917C-9AEF-4EE6-8427-F1C2F8ED44F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{81A6917C-9AEF-4EE6-8427-F1C2F8ED44F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

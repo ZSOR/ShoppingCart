@@ -2,65 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
+using System.Web.Http;
+using shoppingCart.Models;
 
 namespace shoppingCart.Controllers
 {
-    public class CustomerController : Controller
+    [RoutePrefix("api/Customer")]
+    public class CustomerController : ApiController
     {
-        public ActionResult Index()
-        {
-            return View ();
-        }
+        //Since I'm not using a db, I will just store the custoemrs in a list
+        private List<Customer> customers = new List<Customer>{
+            new Customer("Ross", "Test", "Test", CustomerType.Gold)
+        };
 
-        public ActionResult Details(int id)
+        [HttpGet]
+        [Route("")]
+        public IEnumerable<Customer> Index() 
         {
-            return View ();
-        }
-
-        public ActionResult Create()
-        {
-            return View ();
-        } 
-
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try {
-                return RedirectToAction ("Index");
-            } catch {
-                return View ();
-            }
-        }
-        
-        public ActionResult Edit(int id)
-        {
-            return View ();
-        }
-
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try {
-                return RedirectToAction ("Index");
-            } catch {
-                return View ();
-            }
-        }
-
-        public ActionResult Delete(int id)
-        {
-            return View ();
-        }
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try {
-                return RedirectToAction ("Index");
-            } catch {
-                return View ();
-            }
+            return customers;
         }
     }
 }
